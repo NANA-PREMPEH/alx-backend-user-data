@@ -33,3 +33,10 @@ def unauthorized() -> None:
       - Unauthorized error.
     """
     abort(401)
+
+
+@app.errorhandler(403)
+def forbidden(error) -> str:
+    """Forbidden handler.
+    """
+    return jsonify({"error": "Forbidden"}), 403
